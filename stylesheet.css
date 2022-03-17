@@ -1,15 +1,43 @@
-.header {
+* {
+    padding: 0;
+    margin: 0;
+    border: 0
+}
+
+header {
     display: inline;
-    margin: 20px;
+    margin: 0px;
     background-color: #fff;
     color: inherit;
     font-family: "Blue Mono", monospace;
     font-style: italic;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    line-height: 2em;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.buero_link {
+    position: relative;
+    display: inline;
+}
+
+.menu {
+    position: relative;
+    display: inline;
+    left: 700px;
 }
 
 a {
     color: inherit;
     text-decoration: none;
+    margin-left: 1.25em;
+}
+
+a:hover {
+    border-bottom: #ffec00 solid 3px;
 }
 
 body {
