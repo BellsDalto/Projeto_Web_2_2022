@@ -17,6 +17,7 @@ header {
     line-height: 2em;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    font-size: 100%;
 }
 
 .buero_link {
@@ -43,6 +44,6 @@ a:hover {
 body {
     font-family: "Blue Mono", monospace;
     font-size: 20px;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #221f20;
 }
