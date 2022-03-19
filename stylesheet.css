@@ -99,17 +99,24 @@ h1 {
     text-align: center;
 }
 
-.grid-container>div.p1 {
-    text-align: start;
+div.p1 {
+    text-align: left;
     color: #221f20;
     line-height: 1.6;
     /* font-family: "Blue-Mono", monospace;*/
     font-family: "biotif", sans-serif;
     font-size: large;
     font-weight: normal;
+    align-self: center;
+    padding: 100px 20% 0;
+}
+
+.p1 p {
+    margin: 0 0 20px 0;
 }
 
 div .p1>h2 {
+    margin: 20px 0;
     font-family: "Blue-Mono", monospace;
     font-weight: 600;
 }
