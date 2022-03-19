@@ -1,3 +1,6 @@
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -22,12 +25,16 @@ header {
 .buero_link {
     position: relative;
     display: inline;
+    display: fixed;
+    font-size:  16px;
+    margin-left: 75px;
 }
 
 .menu {
     position: relative;
     display: inline;
     left: 700px;
+    font-size:  16px;
 }
 
 a {
@@ -45,4 +52,38 @@ body {
     font-size: 20px;
     line-height: 1.6;
     color: #221f20;
+}
+
+.grid-container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 600px auto;
+    background-color:rgb(69, 238, 250) ;
+    width: 1170px;
+    height: 375px;
+    margin-left: 75px;
+
+}
+
+.grid-container > div {
+    text-align: center;
+    padding-top: 150px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(107, 69, 245);
+    
+  }
+
+.shopfy{
+    text-align: center;
+    align-self: center;
+    margin-top: 200px;
+    font: "Blue-Mono";
+}
+
+.einfaches {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 40px;
+    margin: 5px 15px;
+    text-align: center;
 }
