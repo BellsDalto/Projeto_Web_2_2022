@@ -316,5 +316,24 @@
     }
     
     .group-images li {
-        margin: 0;
+        margin: 12px;
+    }
+    
+    .section_referenzen ul {
+        display: flex;
+    }
+    
+    .section_referenzen li {
+        margin: 12px;
+    }
+    
+    .texto p {
+        font-size: 1.3em;
+        line-height: 1.3 em;
+        font-family: "Biotif", sans-serif;
+    }
+    
+    .texto strong {
+        font-weight: normal;
+        font-size: 1em;
     }
