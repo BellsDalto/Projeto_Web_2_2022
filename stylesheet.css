@@ -1,288 +1,320 @@
-        .conteiner {
-            height: auto;
-            background-color: inherit;
-            margin: auto 15%;
-            font-family: "Blue Mono", monospace;
-        }
-        
-        * {
-            padding: 0;
-            margin: 0;
-            border: 0
-        }
-        
-        header {
-            display: inline-flex;
-            background-color: #fff;
-            color: inherit;
-            font-family: "Blue Mono", monospace;
-            font-style: italic;
-            position: fixed;
-            top: 0px;
-            line-height: 2em;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            width: 100%;
-            z-index: 1;
-            font-weight: 500;
-        }
-        
-        .buero_link {
-            position: relative;
-            display: inline-block;
-            margin-left: 15%;
-        }
-        
-        .menu {
-            position: absolute;
-            display: inline;
-            right: 15%;
-        }
-        
-        a {
-            color: inherit;
-            text-decoration: none;
-            margin-left: 1.25em;
-        }
-        
-        .shopify {
-            border-bottom: none;
-            margin: 40 15 -20 15;
-        }
-        
-        .underline:hover {
-            border-bottom: #ffec00 solid 3px;
-        }
-        
-        .title {
-            padding: 150px 0px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 1.5em;
-            font-style: italic;
-            font-weight: normal;
-            line-height: 1.5;
-        }
-        
-        .grid-container {
-            display: grid;
-            position: relative;
-            grid-template-columns: 600px auto;
-            background-color: rgb(69, 238, 250);
-            /* width: 1170px;*/
-            width: 100%;
-            height: 375px;
-            /*margin-left: 75px;*/
-        }
-        
-        .grid-container>div {
-            text-align: center;
-            padding-top: 150px;
-            font-size: 30px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: rgb(107, 69, 245);
-        }
-        
-        .shopfy {
-            text-align: center;
-            align-self: center;
-            margin-top: 200px;
-            font: "Blue-Mono";
-        }
-        
-        .einfaches {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 40px;
-            margin: 5px 15px;
-            text-align: center;
-        }
-        
-        div.p1 {
-            text-align: left;
-            color: #221f20;
-            line-height: 1.6;
-            /* font-family: "Blue-Mono", monospace;*/
-            font-family: "biotif", sans-serif;
-            font-size: large;
-            font-weight: normal;
-            align-self: center;
-            padding: 100px 20% 0;
-        }
-        
-        .p1 p {
-            margin: 0 0 20px 0;
-        }
-        
-        div .p1>h2 {
-            margin: 20px 0;
-            font-family: "Blue-Mono", monospace;
-            font-weight: 600;
-        }
-        
-        .botao {
-            margin: 0.25em;
-            padding: .75em 2em;
-            border-radius: 1.5em;
-            cursor: pointer;
-            font-size: .9em;
-        }
-        
-        .botao:hover {
-            border: #221f20 solid 2px;
-            transition: all .1s ease-in-out;
-        }
-        
-        .black {
-            color: #fff;
-            background-color: #221f20;
-        }
-        
-        .white {
-            background-color: #fff;
-        }
-        
-        .p1 a {
-            margin: 0;
-        }
-        
-        h2 {
-            font-weight: normal;
-            font-family: "Blue-Mono", monospace;
-        }
-        
-        .section_referenzen {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        footer {
-            background-color: #f9f9f9;
-            width: 100%;
-            padding: 45px 0px 0px 0px;
-            border-bottom: #ffec00 solid 8px;
-            display: block;
-            line-height: 1.6;
-        }
-        
-        ul {
-            list-style: none;
-            display: inline-block;
-            margin: 0 15px;
-        }
-        
-        li {
-            margin: .35em 0;
-        }
-        
-        .wrap {
-            width: 30%;
-            background-color: inherit;
-            position: relative;
-            float: inline-end;
-            position: relative;
-            bottom: 50px;
-        }
-        
-        .nav {
-            width: 70%;
-            font-size: large;
-            font-family: "Biotif", sans-serif;
-        }
-        
-        .inline li {
-            display: inline;
-        }
-        
-        .footer {
-            margin: 0px;
-            padding: 45px 15%;
-            background-color: #f9f9f9;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .image-group {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .image-group li {
-            margin: 0;
-        }
-        
-        .link {
-            margin-top: 20px;
-        }
-        
-        .avatar img {
-            border-radius: 50%;
-            box-shadow: 2px -3px 3px 5px rgba(75, 71, 71, 0.1);
-        }
-        
-        .yellow {
-            background-color: #ffec00;
-        }
-        
-        .yellow:hover {
-            border-color: #ffec00;
-        }
-        
-        div.autor {
-            border: #ffec00 solid 5px;
-            display: flex;
-            padding: 30px;
-            margin: 50px 20%;
-        }
-        
-        .author-data {
-            text-align: center;
-            margin-bottom: 25px;
-            margin-left: 50px;
-            padding-top: 25px;
-            ;
-        }
-        
-        .article-list {
-            text-align: center;
-            margin: 50px 20%;
-        }
-        
-        .destaque {
-            font-size: 2em;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        
-        .underline-bold:hover {
-            border-bottom: #ffec00 solid 5px;
-        }
-        
-        .lecture-time {
-            margin: 10px;
-        }
-        
-        .width {
-            width: 50%;
-        }
-        
-        .text {
-            font-size: 1.6em;
-            line-height: 1.3;
-            text-align: center;
-            padding-top: 100px;
-        }
-        
-        .bold {
-            font-weight: bold;
-            margin: 0 10px;
-            padding: 0 20px;
-        }
-        
-        div.amarela {
-            background-color: #ffec00;
-            color: rgb(107, 69, 245);
-            display: flex;
-            padding: 0;
-        }
+    .conteiner {
+        height: auto;
+        background-color: inherit;
+        margin: auto 15%;
+        font-family: "Blue Mono", monospace;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        border: 0
+    }
+    
+    header {
+        display: inline-flex;
+        background-color: #fff;
+        color: inherit;
+        font-family: "Blue Mono", monospace;
+        font-style: italic;
+        position: fixed;
+        top: 0px;
+        line-height: 2em;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+        z-index: 1;
+        font-weight: 500;
+    }
+    
+    .buero_link {
+        position: relative;
+        display: inline-block;
+        margin-left: 15%;
+    }
+    
+    .menu {
+        position: absolute;
+        display: inline;
+        right: 15%;
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: none;
+        margin-left: 1.25em;
+    }
+    
+    .shopify {
+        border-bottom: none;
+        margin: 40 15 -20 15;
+    }
+    
+    .underline:hover {
+        border-bottom: #ffec00 solid 3px;
+    }
+    
+    .title {
+        padding: 150px 0px;
+        text-align: center;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        font-style: italic;
+        font-weight: normal;
+        line-height: 1.5;
+    }
+    
+    .grid-container {
+        display: grid;
+        position: relative;
+        grid-template-columns: 600px auto;
+        background-color: rgb(69, 238, 250);
+        /* width: 1170px;*/
+        width: 100%;
+        height: 375px;
+        /*margin-left: 75px;*/
+    }
+    
+    .grid-container>div {
+        text-align: center;
+        padding-top: 150px;
+        font-size: 30px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: rgb(107, 69, 245);
+    }
+    
+    .shopfy {
+        text-align: center;
+        align-self: center;
+        margin-top: 200px;
+        font: "Blue-Mono";
+    }
+    
+    .einfaches {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 40px;
+        margin: 5px 15px;
+        text-align: center;
+    }
+    
+    div.p1 {
+        text-align: left;
+        color: #221f20;
+        line-height: 1.6;
+        /* font-family: "Blue-Mono", monospace;*/
+        font-family: "biotif", sans-serif;
+        font-size: large;
+        font-weight: normal;
+        align-self: center;
+        padding: 100px 20% 0;
+    }
+    
+    .p1 p {
+        margin: 0 0 20px 0;
+    }
+    
+    div .p1>h2 {
+        margin: 20px 0;
+        font-family: "Blue-Mono", monospace;
+        font-weight: 600;
+    }
+    
+    .botao {
+        margin: 0.25em;
+        padding: .75em 2em;
+        border-radius: 1.5em;
+        cursor: pointer;
+        font-size: .9em;
+    }
+    
+    .botao:hover {
+        border: #221f20 solid 2px;
+        transition: all .1s ease-in-out;
+    }
+    
+    .black {
+        color: #fff;
+        background-color: #221f20;
+    }
+    
+    .white {
+        background-color: #fff;
+    }
+    
+    .p1 a {
+        margin: 0;
+    }
+    
+    h2 {
+        font-weight: normal;
+        font-family: "Blue-Mono", monospace;
+    }
+    
+    .section_referenzen {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    footer {
+        background-color: #f9f9f9;
+        width: 100%;
+        padding: 45px 0px 0px 0px;
+        border-bottom: #ffec00 solid 8px;
+        display: block;
+        line-height: 1.6;
+    }
+    
+    ul {
+        list-style: none;
+        display: inline-block;
+        margin: 0 15px;
+    }
+    
+    li {
+        margin: .35em 0;
+    }
+    
+    .wrap {
+        width: 30%;
+        background-color: inherit;
+        position: relative;
+        float: inline-end;
+        position: relative;
+        bottom: 50px;
+    }
+    
+    .nav {
+        width: 70%;
+        font-size: large;
+        font-family: "Biotif", sans-serif;
+    }
+    
+    .inline li {
+        display: inline;
+    }
+    
+    .footer {
+        margin: 0px;
+        padding: 45px 15%;
+        background-color: #f9f9f9;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .image-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .image-group li {
+        margin: 0;
+    }
+    
+    .link {
+        margin-top: 20px;
+    }
+    
+    .avatar img {
+        border-radius: 50%;
+        box-shadow: 2px -3px 3px 5px rgba(75, 71, 71, 0.1);
+    }
+    
+    .yellow {
+        background-color: #ffec00;
+    }
+    
+    .yellow:hover {
+        border-color: #ffec00;
+    }
+    
+    div.autor {
+        border: #ffec00 solid 5px;
+        display: flex;
+        padding: 30px;
+        margin: 50px 20%;
+    }
+    
+    .author-data {
+        text-align: center;
+        margin-bottom: 25px;
+        margin-left: 50px;
+        padding-top: 25px;
+        ;
+    }
+    
+    .article-list {
+        text-align: center;
+        margin: 50px 20%;
+    }
+    
+    .destaque {
+        font-size: 2em;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+    
+    .underline-bold:hover {
+        border-bottom: #ffec00 solid 5px;
+    }
+    
+    .lecture-time {
+        margin: 10px;
+    }
+    
+    .width {
+        width: 50%;
+    }
+    
+    .text {
+        font-size: 1.6em;
+        line-height: 1.3;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .bold {
+        font-weight: bold;
+        margin: 0 10px;
+        padding: 0 20px;
+    }
+    
+    div.amarela {
+        background-color: #ffec00;
+        color: rgb(107, 69, 245);
+        display: flex;
+        padding: 0;
+    }
+    
+    div.citacao {
+        text-align: center;
+        font-family: "Blue Mono", monospace;
+        font-size: 1.2em;
+        line-height: 1.4;
+        font-weight: 500;
+        margin-bottom: 50px;
+    }
+    
+    .citacao cite {
+        font-size: .7em;
+        font-family: "Biotif", sans-serif;
+    }
+    
+    .group-images {
+        margin-top: 30px;
+    }
+    
+    .group-images ul {
+        display: flex;
+        align-items: center;
+    }
+    
+    .group-images img {
+        height: 80px;
+        width: auto;
+    }
+    
+    .group-images li {
+        margin: 0;
+    }
