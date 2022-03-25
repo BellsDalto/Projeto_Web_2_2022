@@ -520,6 +520,9 @@
                                 .wrap {
                                     width: 40%;
                                 }
+                                .shopfy {
+                                    margin-top: 150px;
+                                }
                             }
                             
                             @media (max-width: 480px) {
@@ -547,5 +550,8 @@
                                 .image-group ul {
                                     display: flex;
                                     flex-wrap: wrap;
+                                }
+                                .shopfy {
+                                    margin-top: 100px;
                                 }
                             }
