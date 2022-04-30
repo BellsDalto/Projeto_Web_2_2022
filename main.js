@@ -18,7 +18,9 @@
 
 
   function inputArtworkData(docs) {
+
       var content = document.querySelector('.artWorks_contents');
+      content.innerHTML = "";
       for (var i = 0; i < docs.length; i++) {
           let ul = document.createElement('ul');
           let li = document.createElement('li');
@@ -31,13 +33,49 @@
       }
   }
 
+  function displayNone(selector) {
+      var container = document.querySelector(selector);
+      container.style.display = "none";
+  }
+
+  function isLocalStorageEmpty() {
+
+  }
+
+  function validField(query) {
+      if (query.trim().length == 0) {
+          alert("THE FIELD CANNOT BE EMPTY!")
+          return false;
+      } else if (query.trim().length < 3) {
+          alert("THE FIELD NEEDS TO HAVE THREE CHARACTERES OR MORE!");
+          return false;
+
+      } else {
+          return true;
+      }
+
+  }
+
+
+
+
+
+
 
   function main() {
       var search = document.querySelector('.search');
-      var query = search.value;
+
       search.addEventListener("keypress", function(e) {
           if (e.key === "Enter") {
-              getJson(query)
+              var query = search.value;
+              if (validField(query)) {
+                  alert("true");
+                  displayNone('.conteiner');
+                  getJson(query);
+
+              }
+
+
 
           }
       });
