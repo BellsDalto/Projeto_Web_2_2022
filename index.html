@@ -7,7 +7,6 @@
     <title>Shopify Design Agendur — buere huegel</title>
     <link rel="icon" type="imagem/png" href="./img/favicon6.png" />
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-
     <link rel="preload" href="https _buero-huegel.de_assets_fonts_biotif_italic_normal_normal.woff2" as="font/woff2">
     <link rel="preload" href="https _buero-huegel.de_assets_fonts_biotif_389A2A_1_0.woff2" as="font/woff2">
     <link rel="preload" href="https _buero-huegel.de_assets_fonts_biotif_normal_normal_normal.woff2" as="font/woff2">
@@ -83,8 +82,33 @@
 
     </header>
     <!-- Conteudo da pagina-->
-    <div class=" artWorks_contents"></div>
+    <div class="artWorks">
+        <div class="artWorks_contents">
+
+        </div>
+        <button type="button" class="closebtn">Close Search</button>
+
+    </div>
+
     <div class="conteiner">
+
+        <!-- HTML do Login-->
+        <form action="/action_page.php" method="post">
+            <div class="containerLogin">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit">Login</button>
+                <button type="button" class="cancelbtn">Cancel</button>
+
+
+
+            </div>
+        </form>
+        <!--Fim do Html do Login-->
         <div class="shopfy hide"> Shopify Design Agentur </div>
 
         <div class="einfaches hide"> Einfaches, gutes Design → nachhaltige <br> Perfor­mancesteigerung <br>

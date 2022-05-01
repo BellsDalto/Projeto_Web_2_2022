@@ -21,16 +21,20 @@
 
       var content = document.querySelector('.artWorks_contents');
       content.innerHTML = "";
+      content.innerHTML = "<h1> SEARCH RESULT</h1>";
       for (var i = 0; i < docs.length; i++) {
           let ul = document.createElement('ul');
           let li = document.createElement('li');
+          let p = document.createElement('p');
           let img = document.createElement('img');
-          li.innerHTML = docs[i].title;
+          p.innerHTML = docs[i].title;
           img.src = "https://www.artic.edu/iiif/2/" + docs[i].image_id + "/full/843,/0/default.jpg";
+          li.appendChild(p);
           li.appendChild(img);
           ul.appendChild(li);
           content.appendChild(ul);
       }
+
   }
 
   function displayNone(selector) {
@@ -38,16 +42,22 @@
       container.style.display = "none";
   }
 
+  function displayShow(selector) {
+      var container = document.querySelector(selector);
+      container.style.display = "block";
+
+  }
+
   function isLocalStorageEmpty() {
 
   }
 
-  function validField(query) {
+  function isValidField(query) {
       if (query.trim().length == 0) {
           alert("THE FIELD CANNOT BE EMPTY!")
           return false;
       } else if (query.trim().length < 3) {
-          alert("THE FIELD NEEDS TO HAVE THREE CHARACTERES OR MORE!");
+          alert("THE FIELD NEEDS TO HAVE THREE CHARACTERS OR MORE!");
           return false;
 
       } else {
@@ -57,22 +67,21 @@
   }
 
 
-
-
-
-
-
   function main() {
+      close.addEventListener("click", function() {
+          //displayNone('.artWorks_contents');
+          displayNone('.artWorks');
+          displayShow('.conteiner')
+      });
       var search = document.querySelector('.search');
-
       search.addEventListener("keypress", function(e) {
           if (e.key === "Enter") {
               var query = search.value;
-              if (validField(query)) {
-                  alert("true");
+              if (isValidField(query)) {
                   displayNone('.conteiner');
+                  // displayShow('.artWorks_contents');
+                  displayShow('.artWorks');
                   getJson(query);
-
               }
 
 
@@ -82,4 +91,8 @@
 
 
   }
+  let close = document.querySelector(".closebtn");
+
+
+
   main();
