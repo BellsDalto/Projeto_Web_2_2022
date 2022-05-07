@@ -75,18 +75,19 @@
       .then(response => {
               // console.log(response);
               if (response.status >= 400) {
-                  alert("Erro");
-
+                  console.log("erro");
               }
               return response.json();
 
           })
           .then(json => {
               let token = json.token;
-              sendToLocalStorage(token);
-              displayNone("form");
-              document.querySelector(".search").disabled = false;
+              if (token !== undefined) {
+                  sendToLocalStorage(token);
+                  displayNone("form");
+                  document.querySelector(".search").disabled = false;
 
+              }
           })
 
   }
