@@ -48,7 +48,19 @@
 
   }
 
+  function sendToLocalStorage(token) {
+    localStorage.setItem('token', token);
+  }
+
+
   function isLocalStorageEmpty() {
+      let userToken = localStorage.getItem("token");
+      if (!userToken) {
+          return true;
+
+      } else {
+          return false;
+      }
 
   }
 
