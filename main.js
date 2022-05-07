@@ -123,11 +123,42 @@
 
 
   function main() {
+      document.querySelector(".search").addEventListener('focus', () => {
+          console.log("fui chamado!");
+          if (isLocalStorageEmpty()) {
+              console.log("localStorage Empty")
+              document.querySelector(".search").disabled = true;
+              showLogin();
+          } else {
+              console.log("localStorage  Not Empty")
+              document.querySelector(".search").disabled = false;
+          }
+
+
+      });
+
+
+
+      let close = document.querySelector(".closebtn");
+      let cancelLogin = document.querySelector(".cancelbtn");
+      let makeLogin = document.querySelector(".loginbtn");
+
       close.addEventListener("click", function() {
-          //displayNone('.artWorks_contents');
           displayNone('.artWorks');
           displayShow('.conteiner')
       });
+      //Cancela o Login
+      cancelLogin.addEventListener("click", function() {
+          displayNone("form");
+          document.querySelector(".search").disabled = false;
+
+      });
+      // realiza o login
+      makeLogin.addEventListener("click", function(ev) {
+          ev.preventDefault();
+          login();
+      })
+
       var search = document.querySelector('.search');
       search.addEventListener("keypress", function(e) {
           if (e.key === "Enter") {
@@ -146,8 +177,6 @@
 
 
   }
-  let close = document.querySelector(".closebtn");
-
 
 
   main();
