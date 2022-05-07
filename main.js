@@ -79,7 +79,13 @@ function post(user_email, user_password) {
         return response.json();
 
     })
+    .then(json => {
+        let token = json.token;
+        sendToLocalStorage(token);
+        displayNone("form");
+        document.querySelector(".search").disabled = false;
 
+    })
 
 }
   function sendToLocalStorage(token) {
