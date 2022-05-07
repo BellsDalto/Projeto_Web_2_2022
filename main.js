@@ -3,12 +3,6 @@
           .then((r) => r.json()).then(function({ data }) {
               inputArtworkData(data);
           })
-          // .then(response.json()).then(function(response) {
-          // console.log(response);
-          //  inputArtworkData(data);
-          //  });*/
-          // let response = await fetch(`https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=id,title,image_id&limite=5`)
-          // console.log(await response.json());
 
   }
 
@@ -48,48 +42,57 @@
 
   }
 
+  function showLogin() {
+      let login = document.querySelector("form");
+      if (isLocalStorageEmpty) {
+
+          login.style.display = "block";
+      }
+  }
+
   function login() {
-    let user_email = document.querySelector(".user_email").value;
-    let user_password = document.querySelector(".user_password ").value;
-    post(user_email, user_password);
-}
+      let user_email = document.querySelector(".user_email").value;
+      let user_password = document.querySelector(".user_password ").value;
+      post(user_email, user_password);
+  }
 
-function post(user_email, user_password) {
+  function post(user_email, user_password) {
 
-    fetch("https://reqres.in/api/login", {
-        method: "POST",
-        body: JSON.stringify({
-            email: user_email,
-            //email: "eve.holt@reqres.in",
-            password: user_password
-                //password: "123"
+      fetch("https://reqres.in/api/login", {
+          method: "POST",
+          body: JSON.stringify({
+              email: user_email,
+              //email: "eve.holt@reqres.in",
+              password: user_password
+                  //password: "123"
 
-        }),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
+          }),
+          headers: {
+              "Content-type": "application/json; charset=UTF-8"
+          }
+      })
 
-    .then(response => {
-        // console.log(response);
-        if (response.status >= 400) {
-            alert("Erro");
+      .then(response => {
+              // console.log(response);
+              if (response.status >= 400) {
+                  alert("Erro");
 
-        }
-        return response.json();
+              }
+              return response.json();
 
-    })
-    .then(json => {
-        let token = json.token;
-        sendToLocalStorage(token);
-        displayNone("form");
-        document.querySelector(".search").disabled = false;
+          })
+          .then(json => {
+              let token = json.token;
+              sendToLocalStorage(token);
+              displayNone("form");
+              document.querySelector(".search").disabled = false;
 
-    })
+          })
 
-}
+  }
+
   function sendToLocalStorage(token) {
-    localStorage.setItem('token', token);
+      localStorage.setItem('token', token);
   }
 
 
