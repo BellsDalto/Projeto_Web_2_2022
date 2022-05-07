@@ -48,6 +48,12 @@
 
   }
 
+  function login() {
+    let user_email = document.querySelector(".user_email").value;
+    let user_password = document.querySelector(".user_password ").value;
+    post(user_email, user_password);
+}
+
   function sendToLocalStorage(token) {
     localStorage.setItem('token', token);
   }
