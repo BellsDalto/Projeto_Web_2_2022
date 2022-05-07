@@ -54,6 +54,34 @@
     post(user_email, user_password);
 }
 
+function post(user_email, user_password) {
+
+    fetch("https://reqres.in/api/login", {
+        method: "POST",
+        body: JSON.stringify({
+            email: user_email,
+            //email: "eve.holt@reqres.in",
+            password: user_password
+                //password: "123"
+
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    .then(response => {
+        // console.log(response);
+        if (response.status >= 400) {
+            alert("Erro");
+
+        }
+        return response.json();
+
+    })
+
+
+}
   function sendToLocalStorage(token) {
     localStorage.setItem('token', token);
   }
