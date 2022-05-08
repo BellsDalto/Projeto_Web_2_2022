@@ -7,6 +7,14 @@
             font-family: "Biotif";
             src: url('https\ _buero-huegel.de_assets_fonts_biotif_normal_normal_normal.woff2');
         }
+        
+        .msg {
+            top: 0px;
+            position: fixed;
+            z-index: 5;
+            background-color: #f44336;
+            width: 100%;
+        }
         /*close Serch*/
         
         .closebtn {

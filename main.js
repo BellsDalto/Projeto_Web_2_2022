@@ -8,9 +8,6 @@
 
   // utilizar async await ou promisses, ao usar promisses utilisar o metodo then().
 
-
-
-
   function inputArtworkData(docs) {
 
       var content = document.querySelector('.artWorks_contents');
@@ -75,7 +72,9 @@
       .then(response => {
               // console.log(response);
               if (response.status >= 400) {
-                  console.log("erro");
+                  createMessage("Login failed", "Email or password is Incorrect", false);
+                  desapareceMsg();
+
               }
               return response.json();
 
@@ -86,10 +85,18 @@
                   sendToLocalStorage(token);
                   displayNone("form");
                   document.querySelector(".search").disabled = false;
+                  createMessage("Successful login!", " Welcome !", true);
+                  desapareceMsg();
 
               }
           })
 
+  }
+
+  function desapareceMsg() {
+
+      let x = document.querySelector(".msg");
+      setTimeout(function() { x.style.display = "none" }, 2500);
   }
 
   function sendToLocalStorage(token) {
@@ -110,7 +117,7 @@
 
   function isValidField(query) {
       if (query.trim().length == 0) {
-          alert("THE FIELD CANNOT BE EMPTY!")
+          // alert("THE FIELD CANNOT BE EMPTY!")
           return false;
       } else if (query.trim().length < 3) {
           alert("THE FIELD NEEDS TO HAVE THREE CHARACTERS OR MORE!");
@@ -121,6 +128,35 @@
       }
 
   }
+
+  function createMessage(msg1, msg2, succesmsg) {
+
+      let divmsg = document.querySelector(".msg");
+      divmsg.style.display = "block";
+      divmsg.innerHTML = "";
+      let p = document.createElement("p");
+      let p2 = document.createElement("p");
+      p.innerHTML = msg1;
+      p2.innerHTML = msg2;
+      divmsg.appendChild(p);
+      divmsg.appendChild(p2);
+      p.style.margin = "10px";
+      p2.margin = "10px";
+      p.style.textAlign = "center";
+      p2.style.textAlign = "center";
+      divmsg.style.height = "auto";
+      if (succesmsg) {
+          divmsg.style.backgroundColor = " #04AA6D"
+
+      } else {
+          divmsg.style.backgroundColor = "#f44336"
+
+      }
+
+
+  }
+
+
 
 
   function main() {
@@ -157,7 +193,20 @@
       // realiza o login
       makeLogin.addEventListener("click", function(ev) {
           ev.preventDefault();
-          login();
+          let user_email = document.querySelector(".user_email").value,
+              user_password = document.querySelector(".user_password").value;
+
+
+          if (isValidField(user_email) && isValidField(user_password)) {
+              //console.log("entrei_aqui os camps  são validos");
+              login();
+              // createMessage("login Sucessful!", " Well Come " + user_email + "!", true);
+              //  } else {
+              //  console.log("entrei aqui");
+
+              //  alert("o campo x e y não podem ser vazios ou possuir menos de 3 caracteres");
+          }
+
       })
 
       var search = document.querySelector('.search');
