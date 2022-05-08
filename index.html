@@ -96,14 +96,15 @@
     <div class="conteiner">
 
         <!-- HTML do Login-->
-        <!-- Atualizar isso-->
         <form>
             <div class="containerLogin">
                 <label for="uname"><b>email</b></label>
                 <input class="user_email" type="text" placeholder="Enter email" name="uname" required>
+                <p class="email_invalid"></p>
 
-                <label for="psw"><b>Password</b></label>
+                <label class="password_label" clasfor="psw"><b>Password</b></label>
                 <input class="user_password" type="password" placeholder="Enter Password" name="psw" required>
+                <p class="password_invalid"></p>
 
                 <button type="submit" class="loginbtn">Login</button>
                 <button type="button" class="cancelbtn">Cancel</button>

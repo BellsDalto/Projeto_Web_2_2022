@@ -70,9 +70,9 @@
       })
 
       .then(response => {
-              // console.log(response);
+
               if (response.status >= 400) {
-                  createMessage("Login failed", "Email or password is Incorrect", false);
+                  createMessage("Login failed", "Email or password is incorrect", false);
                   desapareceMsg();
 
               }
@@ -117,7 +117,7 @@
 
   function isValidField(query) {
       if (query.trim().length == 0) {
-          // alert("THE FIELD CANNOT BE EMPTY!")
+          alert("THE FIELD CANNOT BE EMPTY!")
           return false;
       } else if (query.trim().length < 3) {
           alert("THE FIELD NEEDS TO HAVE THREE CHARACTERS OR MORE!");
@@ -156,18 +156,57 @@
 
   }
 
+  function validLoginFieds() {
+      clearLoginMsg(".email_invalid");
+      clearLoginMsg(".password_invalid");
+      let user_email = document.querySelector(".user_email").value,
+          flag = true;
+      user_password = document.querySelector(".user_password").value;
+      if (user_email.trim().length == 0) {
+          createLoginMsg(" The email field cannot be empty", ".email_invalid");
+          flag = false;
 
+      } else if (user_email.trim().length < 3) {
+          createLoginMsg("E Mail must be at least three characters long", ".email_invalid");
+          flag = false;
+      } else if (!user_email.includes('@')) {
+          createLoginMsg("Invalid email", ".email_invalid");
+          flag = false;
+      }
 
+      if (user_password.length == 0) {
+          createLoginMsg("The password field cannot be empty", ".password_invalid");
+          flag = false;
+      } else if (user_password.length < 3) {
+          createLoginMsg("Password must be at least three characters long", ".password_invalid");
+          flag = false;
+      }
+      return flag;
+
+  }
+
+  function clearLoginMsg(query) {
+      let p = document.querySelector(query);
+      p.innerHTML = "";
+
+  }
+
+  function createLoginMsg(msg, query) {
+      let login = document.querySelector(".containerLogin");
+      let p = document.querySelector(query);
+      p.innerHTML = msg;
+      p.style.color = "red";
+      p.style.textAlign = "left";
+      p.style.fontFamily = "Arial";
+      p.style.fontSize = "10px";
+  }
 
   function main() {
       document.querySelector(".search").addEventListener('focus', () => {
-          console.log("fui chamado!");
           if (isLocalStorageEmpty()) {
-              console.log("localStorage Empty")
               document.querySelector(".search").disabled = true;
               showLogin();
           } else {
-              console.log("localStorage  Not Empty")
               document.querySelector(".search").disabled = false;
           }
 
@@ -193,20 +232,8 @@
       // realiza o login
       makeLogin.addEventListener("click", function(ev) {
           ev.preventDefault();
-          let user_email = document.querySelector(".user_email").value,
-              user_password = document.querySelector(".user_password").value;
-
-
-          if (isValidField(user_email) && isValidField(user_password)) {
-              //console.log("entrei_aqui os camps  são validos");
+          if (validLoginFieds())
               login();
-              // createMessage("login Sucessful!", " Well Come " + user_email + "!", true);
-              //  } else {
-              //  console.log("entrei aqui");
-
-              //  alert("o campo x e y não podem ser vazios ou possuir menos de 3 caracteres");
-          }
-
       })
 
       var search = document.querySelector('.search');
@@ -215,13 +242,9 @@
               var query = search.value;
               if (isValidField(query)) {
                   displayNone('.conteiner');
-                  // displayShow('.artWorks_contents');
                   displayShow('.artWorks');
                   getJson(query);
               }
-
-
-
           }
       });
 
