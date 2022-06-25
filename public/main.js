@@ -54,6 +54,55 @@
       post(user_email, user_password);
   }
 
+  /* Em alteração */
+  function register() {
+      let flag = true;
+      let user_name = document.querySelector('#name').value;
+      let user_email = document.querySelector('#email').value;
+      let user_password = document.querySelector('#psw').value;
+      let repeat_password = document.querySelector('#psw-repeat').value;
+      clearLoginMsg(".email_invalid");
+      clearLoginMsg(".password_invalid");
+      clearLoginMsg(".repeat_invalid");
+      clearLoginMsg(".username_invalid");
+
+      if (user_email.trim().length == 0) {
+          createLoginMsg(" The email field cannot be empty", ".user_email_invalid");
+          flag = false;
+
+      } else if (user_email.trim().length < 3) {
+          createLoginMsg("E Mail must be at least three characters long", ".user_email_invalid");
+          flag = false;
+      } else if (!user_email.includes('@')) {
+          createLoginMsg("Invalid email", ".user_email_invalid");
+          flag = false;
+      }
+
+      if (user_password.length == 0) {
+          createLoginMsg("The password field cannot be empty", ".user_password_invalid");
+          flag = false;
+      } else if (user_password.length < 3) {
+          createLoginMsg("Password must be at least three characters long", ".user_password_invalid");
+          flag = false;
+      }
+      if (user_name.length == 0) {
+          createLoginMsg("The username field cannot be empty", ".username_invalid");
+          flag = false;
+      } else if (user_name.length < 3) {
+          createLoginMsg("Username must be at least three characters long", ".username_invalid");
+          flag = false;
+
+      }
+
+      if (user_password !== repeat_password) {
+          createLoginMsg("password don't match", ".repeat_invalid");
+          flag = false;
+      }
+
+      return flag;
+
+  }
+
   function post(user_email, user_password) {
 
       fetch("https://reqres.in/api/login", {
@@ -197,16 +246,25 @@
   }
 
   function createLoginMsg(msg, query) {
-      let login = document.querySelector(".containerLogin");
+
       let p = document.querySelector(query);
       p.innerHTML = msg;
       p.style.color = "red";
       p.style.textAlign = "left";
       p.style.fontFamily = "Arial";
       p.style.fontSize = "10px";
+
   }
 
   function main() {
+      document.querySelector(".registerbtn").addEventListener('click', (ev) => {
+          ev.preventDefault();
+          register();
+          // displayNone('.register');
+
+
+      });
+
       document.querySelector(".search").addEventListener('focus', () => {
           if (isLocalStorageEmpty()) {
               document.querySelector(".search").disabled = true;
@@ -224,7 +282,7 @@
               displayNone("form");
               displayShow('.register');
           } else {
-              createMessage("You are already logged in!", " Log out to scess with another account", false);
+              createMessage("You are already logged in!", " Log out to acess with another account", false);
               desapareceMsg();
 
           }
