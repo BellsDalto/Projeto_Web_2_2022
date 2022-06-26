@@ -143,7 +143,7 @@
 
   function post(user_email, user_password) {
 
-      fetch("https://reqres.in/api/login", {
+      fetch("/login", {
           method: "POST",
           body: JSON.stringify({
               email: user_email,
