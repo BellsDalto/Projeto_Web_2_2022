@@ -48,5 +48,23 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Error' });
 });
 
+app.post('/login', async(req, res) => {
+    const { email, password } = req.body;
+
+    const user = await User.login(email, password);
+
+    console.log(user);
+
+    if (user.length == 0) {
+        return res.status(400).send({ error: " login failed username or password is incorrect" });
+    }
+    var token = jwt.sign(user[0], SECRET, {
+        expiresIn: 259200,
+    });
+
+    return res.send({ token });
+
+
+});
 
 app.listen(3000);
