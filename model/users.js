@@ -32,5 +32,13 @@ export default class User {
         return result;
 
     }
+    static async login(email, password) {
+        const conn = await client.connect('mongodb://localhost:27017/projetoweb3'),
+            db = conn.db(),
+            result = await db.collection('users')
+            .find({ email: email, password: password }).toArray();
+        conn.close();
+        return result;
+    }
 
 }

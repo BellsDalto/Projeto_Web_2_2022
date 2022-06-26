@@ -13,7 +13,6 @@ export default class AuthRules {
     }
     static async emailIsUnique(query) {
         let user = await User.findEmail(query);
-        console.log(user);
         if (user.length == 0) {
             return true;
         } else {

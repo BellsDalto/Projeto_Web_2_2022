@@ -3,6 +3,9 @@ import cors from 'cors';
 import router from './router/route_user.js';
 import User from './model/users.js'
 import AuthRules from './model/authRules.js';
+import jwt from 'jsonwebtoken';
+
+const SECRET = "3911887299ab4ab5fad0b923d6e2a88d";
 const app = express();
 app.use(cors());
 app.use(express.static('./public'));
@@ -12,11 +15,10 @@ app.post('/register', async(req, res, next) => {
     try {
 
 
-        const user = req.body;
+        var user = req.body;
         let username = user.username;
         let email = user.email;
         let emailUnique = await AuthRules.emailIsUnique(email);
-        console.log(emailUnique);
         let usernameUnique = await AuthRules.usernameIsUnique(username);
         if (!emailUnique) {
             return res.status(500).send({ error: 'Email is already registered' });
@@ -26,9 +28,14 @@ app.post('/register', async(req, res, next) => {
 
         } else {
             User.create(user);
+            var token = jwt.sign(user, SECRET, {
+                expiresIn: 259200
+            });
+
 
         }
-        return res.send({ user });
+        return res.send({ token });
+
 
     } catch (err) {
         return res.status(400).send({ error: 'Registration failed' });
