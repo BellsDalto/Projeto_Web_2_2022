@@ -121,8 +121,8 @@
               }
           }).then(response => {
 
-              if (response.status >= 400) {
-                  createMessage("Register failed", "email is already registered!", false);
+              if (response.status >= 500) {
+                  createMessage("Register failed", "email or username already exist", false);
                   desapareceMsg();
 
               }
