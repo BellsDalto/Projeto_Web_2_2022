@@ -98,9 +98,47 @@
           createLoginMsg("password don't match", ".repeat_invalid");
           flag = false;
       }
-
+      if (flag) {
+          postRegister(user_name, user_email, user_password);
+      }
       return flag;
 
+
+
+  }
+
+  async function postRegister(username, user_email, user_password) {
+
+      await fetch("./register", {
+              method: "POST",
+              body: JSON.stringify({
+                  username: username,
+                  email: user_email,
+                  password: user_password
+              }),
+              headers: {
+                  "Content-type": "application/json; charset=UTF-8"
+              }
+          }).then(response => {
+
+              if (response.status >= 400) {
+                  createMessage("Register failed", "email is already registered!", false);
+                  desapareceMsg();
+
+              }
+              return response.json();
+
+          })
+          .then(json => {
+              let token = json.token;
+              if (token !== undefined) {
+                  sendToLocalStorage(token);
+                  displayNone(".register");
+                  document.querySelector(".search").disabled = false;
+                  createMessage("Successful register!", " Welcome !", true);
+                  desapareceMsg();
+              }
+          })
   }
 
   function post(user_email, user_password) {
@@ -137,7 +175,6 @@
                   document.querySelector(".search").disabled = false;
                   createMessage("Successful login!", " Welcome !", true);
                   desapareceMsg();
-
               }
           })
 
@@ -259,8 +296,10 @@
   function main() {
       document.querySelector(".registerbtn").addEventListener('click', (ev) => {
           ev.preventDefault();
-          register();
-          // displayNone('.register');
+          if (register()) {
+              displayNone('.register');
+          }
+
 
 
       });
@@ -275,9 +314,14 @@
 
       });
       // link sign in
-      document.querySelector(".signin").addEventListener("click", showLogin());
+      document.querySelector(".signin").addEventListener("click", (ev) => {
+          ev.targetpreventDefault();
+          showLogin();
+      });
+
       // Show register
-      document.querySelector(".register_button").addEventListener('click', () => {
+      document.querySelector(".register_button").addEventListener('click', (ev) => {
+          ev.preventDefault();
           if (isLocalStorageEmpty()) {
               displayNone("form");
               displayShow('.register');
@@ -287,7 +331,8 @@
 
           }
       });
-      document.querySelector(".login").addEventListener('click', () => {
+      document.querySelector(".login").addEventListener('click', (ev) => {
+          ev.preventDefault(ev);
           if (isLocalStorageEmpty()) {
               displayNone(".register");
               showLogin();
@@ -297,7 +342,8 @@
 
           }
       });
-      document.querySelector(".logout").addEventListener('click', () => {
+      document.querySelector(".logout").addEventListener('click', (ev) => {
+          ev.preventDefault();
           localStorage.clear();
           createMessage("disconnected successful", "", true);
           desapareceMsg();

@@ -1,5 +1,4 @@
 import { MongoClient as client } from 'mongodb';
-import md5 from 'md5';
 export default class User {
 
     static async create(user) {
@@ -8,12 +7,13 @@ export default class User {
             const db = conn.db();
 
             //insere um item no banco de dados
-            db.collection('users').insertOne({ user }, (err, res) => {
+            db.collection('users').insertOne({ username: user.username, email: user.email, password: user.password }, (err, res) => {
                 if (err) throw err;
                 console.log('Insert sucessful!');
                 conn.close();
             });
         });
     }
+
 
 }

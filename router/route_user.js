@@ -3,6 +3,7 @@ import User from '../model/users.js'
 const router = express.Router();
 router.post('/register', async(req, res) => {
     try {
+        console.log("fui chamado!");
         const user = await User.create(req.body);
 
         return res.send({ user });
