@@ -1,8 +1,9 @@
 import { MongoClient as client } from 'mongodb';
+const uri = process.env.MONGO_DB;
 export default class User {
 
     static async create(user) {
-        client.connect('mongodb://localhost:27017/projetoweb3', (err, conn) => {
+        client.connect(uri, (err, conn) => {
             if (err) throw err;
             const db = conn.db();
 
@@ -15,7 +16,7 @@ export default class User {
         });
     }
     static async findUsername(query) {
-        const conn = await client.connect('mongodb://localhost:27017/projetoweb3'),
+        const conn = await client.connect(uri),
             db = conn.db(),
             result = await db.collection('users')
             .find({ username: query }).toArray();
@@ -24,7 +25,7 @@ export default class User {
 
     }
     static async findEmail(query) {
-        const conn = await client.connect('mongodb://localhost:27017/projetoweb3'),
+        const conn = await client.connect(uri),
             db = conn.db(),
             result = await db.collection('users')
             .find({ email: query }).toArray();
@@ -33,7 +34,7 @@ export default class User {
 
     }
     static async login(email, password) {
-        const conn = await client.connect('mongodb://localhost:27017/projetoweb3'),
+        const conn = await client.connect(uri),
             db = conn.db(),
             result = await db.collection('users')
             .find({ email: email, password: password }).toArray();
