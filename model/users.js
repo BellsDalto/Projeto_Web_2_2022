@@ -1,5 +1,5 @@
 import { MongoClient as client } from 'mongodb';
-const uri = process.env.MONGO_DB;
+const uri = process.env.MONGO_URI;
 export default class User {
 
     static async create(user) {
